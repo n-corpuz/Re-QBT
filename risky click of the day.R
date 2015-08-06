@@ -1229,6 +1229,11 @@ rep3List[15] <- rep3_FGA$getText()
 #####################################################################################
 
 
+	# designate matrix size 
+header <-matrix("",1,13)
+entry <-matrix("",1, 13)
+
+
 	
 
 
@@ -1237,19 +1242,6 @@ rep3List[15] <- rep3_FGA$getText()
 
 for( i in seq_along(locusList)){	
 
-#designate matrix size 
-header <-matrix("",1,13)
-entry <-matrix("",1, 13)
-
-
-	#Save information to header
-header[1] <- "Case Name"
-header[2] <- "Contributors" 
-header[3] <- "D/ND" 
-header[4] <- "Quant" 
-header[5] <- "Locus"
-header[6] <- "Alleles"
-header[7:(6+knowns)] <- "Known Alleles"
 
 entry[1] <- caseName$getText()
 entry[2] <- contributorsName$getText()
@@ -1259,23 +1251,31 @@ entry[5] <- locusList[i]
 entry[6] <- "alleles" # fuck how to figure out how to tie in Kevins R function into this shit??
 entry[7:(6+knowns)] <- knownMtx[i,]
 
+#Save information to header
+header[1] <- "Case Name"
+header[2] <- "Contributors" 
+header[3] <- "D/ND" 
+header[4] <- "Quant" 
+header[5] <- "Locus"
+header[6] <- "Alleles"
+header[7:(6+knowns)] <- "Known Alleles"
 
 repdeck<-0
 
-if(reps >= 1 & rep1List[i,1]!="INC"){  ##-------Start of IF loop for rep1
+if(rep>=1 && rep1List[i,1]!="INC"){  ##-------Start of IF loop for rep1
 repdeck<-repdeck+1
 entry[6+knowns+repdeck]<-rep1List[i,1]
 header[6+knowns+repdeck] <-"REP"
 }
 
-if(reps >=2 & rep2List[i,1] !="INC"){    #-------Start of IF loop for rep2
+if(rep >=2 && rep2List[i,1] !="INC"){    #-------Start of IF loop for rep2
 repdeck<-repdeck+1
 entry[6+knowns+repdeck]<-rep2List[i,1]
 header[6+knowns+repdeck]<-"REP"
 }
 
 
-if(reps==3 & rep3List[i,1]!= "INC"){ 	
+if(rep==3 && rep3List[i,1]!= "INC"){ 	
 repdeck<-repdeck+1	
 entry[6+knowns+repdeck]<-rep3List[i,1]
 header[(6+knowns+repdeck)]<-"REP"
@@ -1290,9 +1290,10 @@ full<-matrix(c(header,entry))
 print(full)
 
 
-}
 write(full, paste0("C:/Users/NCorpuz/Desktop/Data_Entry_",i,".csv"), sep=",", ncolumns=13, append=FALSE)
-
 }
+
+
 #-######################################################################################################
 
+#does work

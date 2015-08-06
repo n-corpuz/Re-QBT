@@ -20,15 +20,35 @@ entry <-matrix(y,1, length(x))
 
 for(i in seq_along(locusList)) {
 
-	for(p in seq(reps)){
+	for(p in seq(reps)){  #-------Start of For loop
+repdeck<-0
 
-	if( (paste0("rep",p,"List")[i,1]) !="INC") {
+if(rep>=1 & (rep1List[i,1]!="INC")) {  ##-------Start of IF loop
+
+entry[(7+knowns)]<-rep1List[i,1]
+header[7+knowns]<-"REP"
+repdeck<-repdeck+1
+}
+if(rep==2 &(rep2List[i,1] !="INC")){
+entry[(7+knowns+repdeck)]<-rep2List[i,1]
+header[(7+knowns+repdeck)]<-"REP"
+repdeck<-repdeck+1
+}
+if(rep==3 &(rep3List[i,1]!= "INC")) {
+entry[7+knowns+repdeck)]<-rep3List[i,1]
+header[(7+knowns+repdeck)]<-"REP"
+}
+
+length<-(7+knowns+repdeck)
+return(length)
+} 						##-------end of IF loop
 
 
-entry[(6+knowns+p)] <-eval(parse(paste0("rep",p,"List[i,1]")))
-		header[(6+knowns +p)] <-"REP"
-		}
-		}	
+
+
+
+
+	
 header[2] <-"Locus"
 entry[2] <- locusList[i]
 
@@ -38,12 +58,4 @@ write(full, ncolumns=15)
 
 }
 
-for(i in seq_along(locusList)) {
-for(p in seq(reps)) {
-new<-paste0("rep",p,"List")
 
-print(new)
-}
-#eval(c(parse(new)),"[i,1]")
-
-}

@@ -1249,7 +1249,7 @@ header[3] <- "D/ND"
 header[4] <- "Quant" 
 header[5] <- "Locus"
 header[6] <- "Alleles"
-header[7:(6+knowns)] <- "Known Alleles"
+header[7:(6+knowns)] <- "Known Pn"
 
 entry[1] <- caseName$getText()
 entry[2] <- contributorsName$getText()
@@ -1291,7 +1291,7 @@ print(full)
 
 
 }
-write(full, paste0("C:/Users/NCorpuz/Desktop/Data_Entry_",i,".csv"), sep=",", ncolumns=13, append=FALSE)
+write(full, paste0("C:/Users/NCorpuz/Desktop/Data_Entry_",i,".csv"), sep=",", ncolumns=13)
 
 }
 #-######################################################################################################
