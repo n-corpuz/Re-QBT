@@ -1,0 +1,51 @@
+%% Nicholas Corpuz ID 0488998
+%% Problem 1
+clc; clear; 
+
+
+PTS1 = [ -3 0 ; 3 4; 5 1; -1 -3] 
+N = size(PTS1,1)
+X1 = PTS1(:,1)
+X2 = PTS1([2:end 1],1)
+
+Y1 = PTS1(:, 2)
+
+Y2 = PTS1([2:end 1],2) 
+
+
+DistanceFormula = sqrt((X2 - X1).^2 + (Y2 - Y1).^2 )
+
+Perimeter = sum(DistanceFormula)
+
+disp(['Perimeter of this' num2str(N) '-sidedpolygon is:'])
+
+disp(Perimeter)
+
+
+
+
+
+%% Problem 2 
+clc; clear;
+
+m = input('what is the value of m?')
+a = 3
+n = 100
+m = 6
+
+X = linspace(0, a, n)
+Period = X.* (a - X ).^(1/5) + 5
+
+Period1 = repmat(Period,1, m);
+
+X2 = linspace(0, m*a ,n*m)
+
+plot(X2, Period1)
+
+
+xlabel('x', 'FontSize', 14);
+ylabel('y', 'FontSize', 14);
+title('A Periodic Function', 'FontSize', 14)
+
+
+
