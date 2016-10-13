@@ -1320,6 +1320,6 @@ vbox$packStart(buttonOK , fill = T)
 #end of GUI itself and start of the processing and writing portion of the program
 #-######################################################################################################
 #save.user.input is a function that writes the input from the GUI into multiple (usually 15) .csv files 
-#and then calls the LAST.exe file that Kevin Wrote
+#and then calls the Re-QBT.exe or Re-QBT express file that Kevin Wrote
 
 
